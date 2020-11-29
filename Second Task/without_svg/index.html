@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+
+    <div class="button-container">
+        <button id="Btn" onclick="changeSpin()">Click me</button>
+        <div id="spin-element" class="button-border spinA"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+<style>
+    .button-container {
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    #Btn {
+        position: absolute;
+        width: 13rem;
+        height: 13rem;
+        border-radius: 50%;
+        border: none;
+        color: gray;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    #Btn:focus {
+        outline: 0;
+    }
+
+    #Btn:hover {
+        cursor: pointer;
+    }
+
+    .button-border {
+        --n: 28;
+        --d: 4deg;
+        --b: 5px;
+        width: 15rem;
+        background: linear-gradient(64deg, black 50%, yellow 0);
+
+        display: inline-block;
+        border-radius: 50%;
+        -webkit-mask:
+            radial-gradient(farthest-side, transparent calc(100% - var(--b)), #fff calc(100% - var(--b) + 1px)),
+            repeating-conic-gradient(#000 0 calc(360deg/var(--n) - var(--d)), transparent 0 calc(360deg/var(--n)));
+        -webkit-mask-composite: source-in;
+        mask:
+            radial-gradient(farthest-side, transparent calc(100% - var(--b)), #fff calc(100% - var(--b) + 1px)),
+            repeating-conic-gradient(#000 0 calc(360deg/var(--n) - var(--d)), transparent 0 calc(360deg/var(--n)));
+        mask-composite: intersect;
+    }
+
+    .button-border:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+        z-index: 0;
+    }
+
+
+    .spinA {
+        -webkit-animation: spin 8s linear 0s infinite reverse;
+        -moz-animation: spin 8s linear 0s infinite reverse;
+        -ms-animation: spin 8s linear 0s infinite reverse;
+        -o-animation: spin 8s linear 0s infinite reverse;
+        animation: spin 8s linear 0s infinite reverse;
+    }
+
+    .spinB {
+        -webkit-animation: spin 8s linear 0s infinite;
+        -moz-animation: spin 8s linear 0s infinite;
+        -ms-animation: spin 8s linear 0s infinite;
+        -o-animation: spin 8s linear 0s infinite;
+        animation: spin 8s linear 0s infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(360deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+
+    @-ms-keyframes spin {
+        0% {
+            -ms-transform: rotate(360deg);
+        }
+
+        100% {
+            -ms-transform: rotate(0deg);
+        }
+    }
+
+    @-moz-keyframes spin {
+        0% {
+            -moz-transform: rotate(360deg);
+        }
+
+        100% {
+            -moz-transform: rotate(0deg);
+        }
+    }
+
+    @-o-keyframes spin {
+        0% {
+            -o-transform: rotate(360deg);
+        }
+
+        100% {
+            -o-transform: rotate(0deg);
+        }
+    }
+</style>

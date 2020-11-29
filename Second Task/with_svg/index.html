@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+
+    <div class="button-container">
+        <button id="Btn" onclick="changeSpin()">Click me</button>
+        <div id="spin-element" class="button-border spinA"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
+
+<style>
+    .button-container {
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    #Btn {
+        position: absolute;
+        width: 85%;
+        height: 85%;
+        border-radius: 50%;
+        border: none;
+        color: gray;
+        margin: 0 auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    #Btn:focus {
+        outline: 0;
+    }
+
+    #Btn:hover {
+        cursor: pointer;
+    }
+
+    .button-border {
+        display: inline-block;
+        width: 15rem;
+        position: relative;
+        --c: linear-gradient(60deg, black 50%, yellow 0);
+    }
+
+    .button-border:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    .button-border::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background: var(--c, white);
+        -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-3 -3 106 106"><circle cx="50" cy="50" r="50" fill="transparent" stroke="black" stroke-width="2" style="stroke-dasharray:7, 3.5" /></svg>') center/contain;
+        mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="-3 -3 106 106"><circle cx="50" cy="50" r="50" fill="transparent" stroke="black" stroke-width="2" style="stroke-dasharray:7, 3.5" /></svg>') center/contain;
+    }
+
+
+    .spinA {
+        -webkit-animation: spin 8s linear 0s infinite reverse;
+        -moz-animation: spin 8s linear 0s infinite reverse;
+        -ms-animation: spin 8s linear 0s infinite reverse;
+        -o-animation: spin 8s linear 0s infinite reverse;
+        animation: spin 8s linear 0s infinite reverse;
+    }
+
+    .spinB {
+        -webkit-animation: spin 8s linear 0s infinite;
+        -moz-animation: spin 8s linear 0s infinite;
+        -ms-animation: spin 8s linear 0s infinite;
+        -o-animation: spin 8s linear 0s infinite;
+        animation: spin 8s linear 0s infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(360deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(360deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(0deg);
+        }
+    }
+
+    @-ms-keyframes spin {
+        0% {
+            -ms-transform: rotate(360deg);
+        }
+
+        100% {
+            -ms-transform: rotate(0deg);
+        }
+    }
+
+    @-moz-keyframes spin {
+        0% {
+            -moz-transform: rotate(360deg);
+        }
+
+        100% {
+            -moz-transform: rotate(0deg);
+        }
+    }
+
+    @-o-keyframes spin {
+        0% {
+            -o-transform: rotate(360deg);
+        }
+
+        100% {
+            -o-transform: rotate(0deg);
+        }
+    }
+</style>
