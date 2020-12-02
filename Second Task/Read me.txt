@@ -1,1 +1,0 @@
-Version with a svg have strange bug in firefox, small glitch line around element.

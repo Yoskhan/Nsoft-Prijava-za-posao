@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <div id="btn-container">
+        <button id="Btn" onclick="changeSpin()">Click me</button>
+        <div id="button-border" class="clockwise-spin"></div>
+    </div>
+</body>
+
+<script>
+    function changeSpin() {
+        document.getElementById("button-border").classList.toggle('anticlockwise-spin');
+    }    
+</script>
+
+</html>
+
+<style>
+    #btn-container {
+        position: absolute;
+    }
+
+    #Btn {
+        position: absolute;
+        width: 85%;
+        height: 85%;
+        border-radius: 50%;
+        border: none;
+        color: gray;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    #Btn:focus,
+    #Btn:hover {
+        outline: 0;
+        cursor: pointer;
+    }
+
+    #button-border {
+        width: 15rem;
+        height: 15rem;
+        border: 0.2rem dashed;
+        border-bottom-color: yellow;
+        border-right-color: yellow;
+        border-top-color: black;
+        border-left-color: black;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .clockwise-spin {
+        -webkit-animation: spin 8s linear 0s infinite;
+        -moz-animation: spin 8s linear 0s infinite;
+        -ms-animation: spin 8s linear 0s infinite;
+        -o-animation: spin 8s linear 0s infinite;
+        animation: spin 8s linear 0s infinite;
+    }
+
+    .anticlockwise-spin {
+        -webkit-animation: spin 8s linear 0s infinite reverse;
+        -moz-animation: spin 8s linear 0s infinite reverse;
+        -ms-animation: spin 8s linear 0s infinite reverse;
+        -o-animation: spin 8s linear 0s infinite reverse;
+        animation: spin 8s linear 0s infinite reverse;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @-ms-keyframes spin {
+        0% {
+            -ms-transform: rotate(0deg);
+        }
+
+        100% {
+            -ms-transform: rotate(360deg);
+        }
+    }
+
+    @-moz-keyframes spin {
+        0% {
+            -moz-transform: rotate(0deg);
+        }
+
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+
+    @-o-keyframes spin {
+        0% {
+            -o-transform: rotate(0deg);
+        }
+
+        100% {
+            -o-transform: rotate(360deg);
+        }
+    }
+</style>
